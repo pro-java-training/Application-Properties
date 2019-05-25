@@ -1,8 +1,6 @@
 package com.codve.controller;
 
-import com.codve.Bean.DataSource;
-import com.codve.Bean.DataSource2;
-import com.codve.Bean.DataSource3;
+import com.codve.Bean.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +19,13 @@ public class DataSourceController {
 
     @Autowired
     private DataSource3 dataSource3;
+
+    @Autowired
+    private DataSource4 dataSource4;
+
+    @Autowired
+    private DataSource5 dataSource5;
+
 
     @RequestMapping(value = "/get1", method = RequestMethod.GET)
     public String get() {
@@ -63,11 +68,16 @@ public class DataSourceController {
         ObjectMapper objectMapper = new ObjectMapper();
         String result = "";
         try {
-            result = objectMapper.writeValueAsString(dataSource3);
+            result = objectMapper.writeValueAsString(dataSource4);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
         return result;
+    }
+
+    @RequestMapping(value = "/get5", method = RequestMethod.GET)
+    public String get5() {
+        return dataSource5.getBooks();
     }
 
 }

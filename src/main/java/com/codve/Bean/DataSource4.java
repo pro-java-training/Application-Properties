@@ -33,6 +33,9 @@ public class DataSource4 {
                        @Value("${nginx.username}") String username,
                        @Value("${nginx.password}") String password) {
         log.info("url: {}, username: {}, password: {}", url, username, password);
+        this.url = url;
+        this.username = username;
+        this.password = password;
     }
 
 }
