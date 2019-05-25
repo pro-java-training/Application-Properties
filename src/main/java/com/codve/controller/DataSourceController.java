@@ -58,4 +58,16 @@ public class DataSourceController {
         return result;
     }
 
+    @RequestMapping(value = "/get4", method = RequestMethod.GET)
+    public String get4() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String result = "";
+        try {
+            result = objectMapper.writeValueAsString(dataSource3);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }
